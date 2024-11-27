@@ -11,11 +11,10 @@ console.log("************** DELIVERABLE 01 *********************");
 
 const head = (array: any[]) => {
     const [firstItem] = array;
-    console.log(firstItem);
     return firstItem;
 };
 
-head(['patata', 1, {}]);
+console.log(head(['patata', 1, {}]));
 
 
 /**
@@ -25,11 +24,10 @@ head(['patata', 1, {}]);
 
 const tail = (array: any[]) => {
     const [_firstItem, ...restOfItems] = array;
-    console.log(restOfItems);
     return restOfItems;
 };
 
-tail(['patata', 1, {}]);
+console.log(tail(['patata', 1, {}]));
 
 /**
  * Init
@@ -38,11 +36,10 @@ tail(['patata', 1, {}]);
 
 const init = (array: any[]) => {
     array.pop();
-    console.log(array);
     return array;
 };
 
-init(['patata', 1, {}]);
+console.log(init(['patata', 1, {}]));
 
 /**
  * Last
@@ -51,8 +48,7 @@ init(['patata', 1, {}]);
 
 const last = (array: any[]) => {
     const lastItem = array.pop();
-    console.log(lastItem);
     return lastItem;
 };
 
-last(['patata', 1, {}]);
+console.log(last(['patata', 1, {}]));
