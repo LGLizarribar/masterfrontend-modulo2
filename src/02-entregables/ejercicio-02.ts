@@ -6,7 +6,7 @@ console.log("************** DELIVERABLE 02 *********************");
  */
 
 const concat = (a: any[], b: any[]) => {
-    const concatArray = a.concat(b);
+    const concatArray = [...a, ...b]
     return concatArray;
 };
 
