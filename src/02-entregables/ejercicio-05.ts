@@ -24,11 +24,9 @@ class SlotMachine {
         this.#coins = this.#initialCoins
     }
 
-    #getRandomBoolean(): boolean {
-        return (Math.floor((Math.random() * 10) + 1) % 2) === 0;
-    }
+    #getRandomBoolean: () => boolean = () => (Math.floor((Math.random() * 10) + 1) % 2) === 0;
 
-    play(): () => void {
+    play: () => void = () => {
         this.#coins++;
         let result: boolean = true;
 
@@ -44,7 +42,6 @@ class SlotMachine {
         } else {
             console.log("Good luck next time!!");
         }
-        return;
     }
 
 }

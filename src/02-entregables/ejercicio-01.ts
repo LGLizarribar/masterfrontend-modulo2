@@ -9,10 +9,7 @@ console.log("************** DELIVERABLE 01 *********************");
  * Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
  */
 
-const head = (array: any[]) => {
-    const [firstItem] = array;
-    return firstItem;
-};
+const head = ([firstItem]: any[]) => firstItem;
 
 console.log(head(['patata', 1, {}]));
 
@@ -22,10 +19,7 @@ console.log(head(['patata', 1, {}]));
  * Implementa una función tail (inmutable), tal que, dado un array como entrada devuelta todos menos el primer elemento. Utiliza rest operator.
  */
 
-const tail = (array: any[]) => {
-    const [_firstItem, ...restOfItems] = array;
-    return restOfItems;
-};
+const tail = ([_firstItem, ...restOfItems]: any[]) => restOfItems;
 
 console.log(tail(['patata', 1, {}]));
 
