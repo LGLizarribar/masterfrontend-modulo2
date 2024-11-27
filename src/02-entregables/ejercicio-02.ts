@@ -19,10 +19,23 @@ console.log(concat(['patata', 'pepe', 'gatito'], [1, 2, 3]));
  */
 
 const concatMore = (...rest: any[]) => {
-    const newArray = [];
-    rest.map(inputArray => inputArray.map(item => newArray.push(item)));
-    return newArray;
+
+    //Alternative way with for of loop using previous concat function
+    let newLoopArray = [];
+    for (const subArray of rest) {
+        newLoopArray = concat(newLoopArray, subArray);
+    }
+    
+    //Alternative using map function within a map function
+    const newMapArray = [];
+    rest.map(inputArray => inputArray.map(item => newMapArray.push(item)));
+    console.log(newMapArray);
+
+    // Alternative way with flat function
+    console.log(rest.flat())
+    
+    return newLoopArray;
 };
 
-console.log(concatMore(['patata', 'pepe', 'gatito'], [1, 2, 3], ['patata', 'pepe', 'gatito'], [1, 2, 3]));
+console.log(concatMore(['patata', 'pepe', 'gatito'], [1, 2, 3], ['pata', 'paco', 'miau'], [5, 6, 7]));
 console.log(concatMore([]));
