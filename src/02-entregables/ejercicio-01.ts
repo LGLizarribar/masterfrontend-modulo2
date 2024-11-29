@@ -35,10 +35,7 @@ console.log(tail(['patata', 12, {gato: "miau"}]));
 type InitFunction = (array: unknown[]) => unknown[];
 
 const init: InitFunction = (array) => {
-    const newArray = array.reduce((acc: unknown[], item, index) => {
-        if(index === array.length -1) return acc;
-        return [...acc, item];
-    },[])
+    const newArray = array.reduce((acc: unknown[], item, index) => (index === array.length -1) ? acc : [...acc, item],[]);
 
     // alternative way
     const newAlternativeArray = [...array];
