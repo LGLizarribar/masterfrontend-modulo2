@@ -9,7 +9,9 @@ console.log("************** DELIVERABLE 01 *********************");
  * Implementa una función head (inmutable), tal que, dado un array como entrada extraiga y devuelva su primer elemento. Utiliza destructuring.
  */
 
-const head = ([firstItem]: any[]) => firstItem;
+type HeadFunction = ([firstItem]: unknown[]) => unknown;
+
+const head: HeadFunction = ([firstItem]) => firstItem;
 
 console.log(head(['patata', 1, {}]));
 
@@ -19,7 +21,9 @@ console.log(head(['patata', 1, {}]));
  * Implementa una función tail (inmutable), tal que, dado un array como entrada devuelta todos menos el primer elemento. Utiliza rest operator.
  */
 
-const tail = ([_firstItem, ...restOfItems]: any[]) => restOfItems;
+type TailFunction = ([_firstItem, ...restOfItems]: unknown[]) => unknown[];
+
+const tail: TailFunction = ([_firstItem, ...restOfItems]) => restOfItems;
 
 console.log(tail(['patata', 1, {}]));
 
@@ -28,7 +32,9 @@ console.log(tail(['patata', 1, {}]));
  * Implementa una función init (inmutable), tal que, dado un array como entrada devuelva todos los elementos menos el último. Utiliza los métodos que ofrece Array.prototype.
  */
 
-const init = (array: any[]) => {
+type InitFunction = (array: unknown[]) => unknown[];
+
+const init: InitFunction = (array) => {
     array.pop();
     return array;
 };
@@ -40,7 +46,9 @@ console.log(init(['patata', 1, {}]));
  * Implementa una función last (inmutable), tal que, dado un array como entrada devuelva el último elemento.
  */
 
-const last = (array: any[]) => {
+type LastFunction = (array: unknown[]) => unknown;
+
+const last: LastFunction = (array) => {
     const lastItem = array.pop();
     return lastItem;
 };

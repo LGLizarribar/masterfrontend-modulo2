@@ -13,18 +13,20 @@ console.log("************** DELIVERABLE 04 *********************");
  * Utiliza Typescript para añadir los tipos adecuados.
  */
 
-type Book = {
+interface Book {
     title: string;
     isRead: boolean;
 }
 
-function isBookRead(books: Book[], titleToSearch: string): boolean {
+type IsBookReadFunction = (books: Book[], titleToSearch: string) => boolean;
+
+const isBookRead: IsBookReadFunction = (books, titleToSearch) => {
   const selectedBook = books.find(book => book.title === titleToSearch);
   return selectedBook ? selectedBook.isRead : false;
 }
 
 
-const books = [
+const books: Book[] = [
  { title: "Harry Potter y la piedra filosofal", isRead: true },
  { title: "Canción de hielo y fuego", isRead: false },
  { title: "Devastación", isRead: true },

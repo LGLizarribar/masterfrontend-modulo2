@@ -5,9 +5,11 @@ console.log("************** DELIVERABLE 02 *********************");
  * Implementa una función concat (inmutable) tal que, dados 2 arrays como entrada, devuelva la concatenación de ambos. Utiliza rest / spread operators.
  */
 
-const concat = (a: any[], b: any[]) => [...a, ...b];
+type ConcatFunction = <A, B>(a: A[], b: B[]) => (A|B)[];
 
-console.log(concat(['patata', 'pepe', 'gatito'], [1, 2, 3]));
+const concat: ConcatFunction = (a, b) => [...a, ...b];
+
+console.log(concat<string, number>(['patata', 'pepe', 'gatito'], [1, 2, 3]));
 
 
 /**
@@ -15,17 +17,19 @@ console.log(concat(['patata', 'pepe', 'gatito'], [1, 2, 3]));
  * Implementa una nueva versión de concat donde se acepten múltiples arrays de entrada (más de 2). No utilices el método Array.prototype.concat.
  */
 
-const concatMore = (...rest: any[]) => {
+type ConcatMoreFunction = (...rest: Array<Array<unknown>> ) => unknown[];
+
+const concatMore: ConcatMoreFunction = (...rest) => {
 
     //Alternative way with for of loop using previous concat function
-    let newLoopArray: any[] = [];
+    let newLoopArray: unknown[] = [];
     for (const subArray of rest) {
         newLoopArray = concat(newLoopArray, subArray);
     }
     
     //Alternative using map function within a map function
-    const newMapArray: any[] = [];
-    rest.map((inputArray: any[]) => inputArray.map((item: any) => newMapArray.push(item)));
+    const newMapArray: unknown[] = [];
+    rest.map((inputArray: unknown[]) => inputArray.map((item: unknown) => newMapArray.push(item)));
     console.log(newMapArray);
 
     // Alternative way with flat function
