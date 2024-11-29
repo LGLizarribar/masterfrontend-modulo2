@@ -13,7 +13,7 @@ type HeadFunction = ([firstItem]: unknown[]) => unknown;
 
 const head: HeadFunction = ([firstItem]) => firstItem;
 
-console.log(head(['patata', 1, {}]));
+console.log(head(['patata', 12, {gato: "miau"}]));
 
 
 /**
@@ -25,7 +25,7 @@ type TailFunction = ([_firstItem, ...restOfItems]: unknown[]) => unknown[];
 
 const tail: TailFunction = ([_firstItem, ...restOfItems]) => restOfItems;
 
-console.log(tail(['patata', 1, {}]));
+console.log(tail(['patata', 12, {gato: "miau"}]));
 
 /**
  * Init
@@ -35,11 +35,20 @@ console.log(tail(['patata', 1, {}]));
 type InitFunction = (array: unknown[]) => unknown[];
 
 const init: InitFunction = (array) => {
-    array.pop();
-    return array;
+    const newArray = array.reduce((acc: unknown[], item, index) => {
+        if(index === array.length -1) return acc;
+        return [...acc, item];
+    },[])
+
+    // alternative way
+    const newAlternativeArray = [...array];
+    newAlternativeArray.pop();
+    console.log(newAlternativeArray);
+    
+    return newArray as unknown[];
 };
 
-console.log(init(['patata', 1, {}]));
+console.log(init(['patata', 12, {gato: "miau"}]));
 
 /**
  * Last
@@ -49,8 +58,8 @@ console.log(init(['patata', 1, {}]));
 type LastFunction = (array: unknown[]) => unknown;
 
 const last: LastFunction = (array) => {
-    const lastItem = array.pop();
-    return lastItem;
+    const arrayLength = array.length;
+    return array[arrayLength - 1];
 };
 
-console.log(last(['patata', 1, {}]));
+console.log(last(['patata', 12, {gato: "miau"}]));
